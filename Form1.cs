@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Backprop;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace Flores_Backpropagation
 {
     public partial class Form1 : Form
     {
         NeuralNet nn;
+        int epoch;
 
         public Form1()
         {
@@ -22,30 +25,139 @@ namespace Flores_Backpropagation
         private void button1_Click(object sender, EventArgs e)
         {
 
-            nn = new NeuralNet(2, 100, 1);
+            nn = new NeuralNet(4, 128, 1);
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            for (int x = 0; x < 100; x++)
+            for (int i = 0; i < 500; i++)
             {
-                nn.setInputs(0, 0.00);
-                nn.setInputs(1, 0.00);
+                //0 0 0 0
+                nn.setInputs(0, 0.0);
+                nn.setInputs(1, 0.0);
+                nn.setInputs(2, 0.0);
+                nn.setInputs(3, 0.0);
                 nn.setDesiredOutput(0, 0.0);
                 nn.learn();
 
-                nn.setInputs(0, 0.00);
-                nn.setInputs(1, 1.00);
-                nn.setDesiredOutput(0, 1.0);
+                //0 0 0 1
+                nn.setInputs(0, 0.0);
+                nn.setInputs(1, 0.0);
+                nn.setInputs(2, 0.0);
+                nn.setInputs(3, 1.0);
+                nn.setDesiredOutput(0, 0.0);
                 nn.learn();
 
-                nn.setInputs(0, 1.00);
-                nn.setInputs(1, 0.00);
-                nn.setDesiredOutput(0, 1.0);
+                //0 0 1 0
+                nn.setInputs(0, 0.0);
+                nn.setInputs(1, 0.0);
+                nn.setInputs(2, 1.0);
+                nn.setInputs(3, 0.0);
+                nn.setDesiredOutput(0, 0.0);
                 nn.learn();
 
-                nn.setInputs(0, 1.00);
-                nn.setInputs(1, 1.00);
+                //0 0 1 1
+                nn.setInputs(0, 0.0);
+                nn.setInputs(1, 0.0);
+                nn.setInputs(2, 1.0);
+                nn.setInputs(3, 1.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                //0 1 0 0
+                nn.setInputs(0, 0.0);
+                nn.setInputs(1, 1.0);
+                nn.setInputs(2, 0.0);
+                nn.setInputs(3, 0.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                //0 1 0 1
+                nn.setInputs(0, 0.0);
+                nn.setInputs(1, 1.0);
+                nn.setInputs(2, 0.0);
+                nn.setInputs(3, 1.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                //0 1 1 0
+                nn.setInputs(0, 0.0);
+                nn.setInputs(1, 1.0);
+                nn.setInputs(2, 1.0);
+                nn.setInputs(3, 0.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                //0 1 1 1
+                nn.setInputs(0, 0.0);
+                nn.setInputs(1, 1.0);
+                nn.setInputs(2, 1.0);
+                nn.setInputs(3, 1.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                //1 0 0 0
+                nn.setInputs(0, 1.0);
+                nn.setInputs(1, 0.0);
+                nn.setInputs(2, 0.0);
+                nn.setInputs(3, 0.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                //1 0 0 1
+                nn.setInputs(0, 1.0);
+                nn.setInputs(1, 0.0);
+                nn.setInputs(2, 0.0);
+                nn.setInputs(3, 1.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                //1 0 1 0
+                nn.setInputs(0, 1.0);
+                nn.setInputs(1, 0.0);
+                nn.setInputs(2, 1.0);
+                nn.setInputs(3, 0.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                //1 0 1 1
+                nn.setInputs(0, 1.0);
+                nn.setInputs(1, 0.0);
+                nn.setInputs(2, 1.0);
+                nn.setInputs(3, 1.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                //1 1 0 0
+                nn.setInputs(0, 1.0);
+                nn.setInputs(1, 1.0);
+                nn.setInputs(2, 0.0);
+                nn.setInputs(3, 0.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                //1 1 0 1
+                nn.setInputs(0, 1.0);
+                nn.setInputs(1, 1.0);
+                nn.setInputs(2, 0.0);
+                nn.setInputs(3, 1.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                //1 1 1 0
+                nn.setInputs(0, 1.0);
+                nn.setInputs(1, 1.0);
+                nn.setInputs(2, 1.0);
+                nn.setInputs(3, 0.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                //1 1 1 1
+                nn.setInputs(0, 1.0);
+                nn.setInputs(1, 1.0);
+                nn.setInputs(2, 1.0);
+                nn.setInputs(3, 1.0);
                 nn.setDesiredOutput(0, 1.0);
                 nn.learn();
             }
@@ -54,8 +166,11 @@ namespace Flores_Backpropagation
         private void button3_Click_1(object sender, EventArgs e)
         {
             nn.setInputs(0, Convert.ToDouble(textBox1.Text));
-            nn.setInputs(1, Convert.ToDouble(textBox2.Text));
+            nn.setInputs(1, Convert.ToDouble(textBox3.Text));
+            nn.setInputs(2, Convert.ToDouble(textBox4.Text));
+            nn.setInputs(3, Convert.ToDouble(textBox2.Text));
             nn.run();
+
             button4.Text = "" + nn.getOuputData(0);
         }
 
