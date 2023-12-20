@@ -16,7 +16,7 @@ namespace Flores_Backpropagation
     public partial class Form1 : Form
     {
         NeuralNet nn;
-        int epoch;
+        int epoch = 159;
 
         public Form1()
         {
@@ -25,13 +25,13 @@ namespace Flores_Backpropagation
         private void button1_Click(object sender, EventArgs e)
         {
 
-            nn = new NeuralNet(4, 128, 1);
+            nn = new NeuralNet(4, 512, 1);
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 500; i++)
+            for (int i = 0; i < epoch; i++)
             {
                 //0 0 0 0
                 nn.setInputs(0, 0.0);
